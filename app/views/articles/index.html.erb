@@ -1,0 +1,16 @@
+<h1>Listing Articles</h1><br/>
+ <%= link_to 'New article', new_article_path, class: "btn btn-primary" %><br/><br/>
+  <table class="table table-hover table-sm table-borderless align-middle">
+    
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><%= link_to 'Show', article_path(article), class: "btn btn-primary" %></td>
+      <td><%= link_to 'Edit', edit_article_path(article), class: "btn btn-primary" %></td>
+      <td><%= link_to 'Delete', article_path(article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+    </tr>
+  <% end %>
+</table>
